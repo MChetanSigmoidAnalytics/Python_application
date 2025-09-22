@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User List</title>
+</head>
+<body>
+    <h1>Users</h1>
+    <table border="1" id="userTable">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+    </table>
+
+    <script>
+        fetch('http://localhost:5000/users')
+            .then(response => response.json())
+            .then(data => {
+                const table = document.getElementById('userTable');
+                data.forEach(user => {
+                    let row = table.insertRow();
+                    row.insertCell(0).innerText = user.id;
+                    row.insertCell(1).innerText = user.name;
+                    row.insertCell(2).innerText = user.email;
+                });
+            });
+    </script>
+</body>
+</html>

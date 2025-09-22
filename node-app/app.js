@@ -1,11 +1,10 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 
-app.get('/', (req, res) => {
-    res.send('Hello World from Node.js!');
-});
+app.use(express.static(__dirname));
 
 const PORT = 3000;
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+    console.log(`Node.js frontend running at http://localhost:${PORT}`);
 });
