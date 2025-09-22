@@ -8,7 +8,9 @@ WORKDIR /app
 COPY app.py .
 
 # Install any dependencies if needed (example: flask)
-# RUN pip install flask
+RUN pip install flask
+
+
 
 # Command to run the app
 CMD ["python", "app.py"]
